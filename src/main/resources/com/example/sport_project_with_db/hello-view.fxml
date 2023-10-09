@@ -9,16 +9,21 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sport_project_with_db.HelloController">
    <children>
-      <MenuBar layoutX="7.0" layoutY="8.0" prefHeight="29.0" prefWidth="679.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <MenuBar layoutX="-8.0" prefHeight="29.0" prefWidth="679.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="Справочники">
             <items>
               <MenuItem fx:id="addSportsmen" mnemonicParsing="false" text="Спортсмены" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Таблица">
+               <items>
+                  <MenuItem fx:id="resfresh_table" mnemonicParsing="false" onAction="#updateData" text="Обновить таблицу" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
-       <TableView fx:id="sportTable" editable="true" layoutY="29.0" prefHeight="385.0" prefWidth="679.0" stylesheets="@style/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+       <TableView fx:id="sportTable" editable="true" layoutY="27.0" prefHeight="387.0" prefWidth="679.0" stylesheets="@style/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
            <columns>
                <TableColumn fx:id="reg_col" editable="false" prefWidth="64.0" text="Код рег." />
                <TableColumn fx:id="draw_col" prefWidth="135.0" sortable="false" text="Номер жеребьевки" />
