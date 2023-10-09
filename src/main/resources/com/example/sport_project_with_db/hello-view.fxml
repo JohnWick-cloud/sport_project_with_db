@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sport_project_with_db.HelloController">
+   <children>
+      <MenuBar layoutX="7.0" layoutY="8.0" prefHeight="25.0" prefWidth="576.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Справочники">
+            <items>
+              <MenuItem fx:id="addSportsmen" mnemonicParsing="false" text="Спортсмены" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TableView layoutX="7.0" layoutY="25.0" prefHeight="376.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C3" />
+            <TableColumn prefWidth="75.0" text="C4" />
+            <TableColumn prefWidth="75.0" text="C5" />
+            <TableColumn prefWidth="75.0" text="C6" />
+            <TableColumn prefWidth="75.0" text="C7" />
+            <TableColumn prefWidth="75.0" text="C8" />
+            <TableColumn prefWidth="75.0" text="C9" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
