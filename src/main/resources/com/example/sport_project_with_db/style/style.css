@@ -1,0 +1,21 @@
+
+.table-view{
+    -fx-border-color: white;
+}
+
+.table-column{
+    -fx-font: 14px Arial;
+    -fx-font-family: Play;
+    -fx-background-color: #FFFF;
+    -fx-border-color: black;
+    -fx-border-width: 0.3px;
+
+
+
+}
+
+.menu{
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+    -fx-font-family: Play;
+}
