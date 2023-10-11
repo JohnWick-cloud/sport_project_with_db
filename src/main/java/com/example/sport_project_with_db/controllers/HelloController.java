@@ -1,20 +1,19 @@
-package com.example.sport_project_with_db;
+package com.example.sport_project_with_db.controllers;
 
+import com.example.sport_project_with_db.classes_for_cntrollers.Sportsmen;
+import com.example.sport_project_with_db.db_actions.sportsmenDb;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -142,7 +141,7 @@ public class HelloController implements Initializable {
             public void handle(ActionEvent event) {
                 Platform.runLater(() -> {
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/add_sportsmen.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/sport_project_with_db/fxml_files/add_sportsmen.fxml"));
                         Scene newscene = new Scene(loader.load());
                         Stage newstage = new Stage();
                         newstage.setScene(newscene);

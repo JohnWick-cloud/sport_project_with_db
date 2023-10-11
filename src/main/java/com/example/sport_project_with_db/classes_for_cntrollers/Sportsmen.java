@@ -1,4 +1,4 @@
-package com.example.sport_project_with_db;
+package com.example.sport_project_with_db.classes_for_cntrollers;
 
 public class Sportsmen{
     String name;

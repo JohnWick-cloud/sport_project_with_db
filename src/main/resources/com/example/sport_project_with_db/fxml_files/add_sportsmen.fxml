@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.ComboBox?>
+        <?import javafx.scene.control.DatePicker?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.RadioButton?>
+        <?import javafx.scene.control.TextField?>
+        <?import javafx.scene.control.ToggleGroup?>
+        <?import javafx.scene.layout.AnchorPane?>
+        <?import javafx.scene.layout.ColumnConstraints?>
+        <?import javafx.scene.layout.GridPane?>
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.layout.RowConstraints?>
+        <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sport_project_with_db.AddSportsmen">
+<AnchorPane focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="807.0" style="-fx-background-color: #9AA8A8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sport_project_with_db.controllers.AddSportsmen">
     <children>
         <GridPane layoutX="14.0" layoutY="17.0" prefHeight="400.0" prefWidth="438.0" AnchorPane.leftAnchor="14.0">
             <columnConstraints>
@@ -30,25 +30,25 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label minWidth="41.0" prefHeight="17.0" prefWidth="94.0" text="Ф.И.О">
+                <Label minWidth="41.0" prefHeight="17.0" prefWidth="94.0" text="Ф.И.О" textFill="WHITE">
                     <font>
                         <Font size="13.0" />
                     </font></Label>
                 <TextField fx:id="name_field" minHeight="24.0" minWidth="115.0" prefHeight="25.0" prefWidth="158.0" GridPane.columnIndex="1" />
                 <TextField fx:id="reg_field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Label prefHeight="17.0" prefWidth="104.0" text="Код регистрации" GridPane.rowIndex="1">
+                <Label prefHeight="17.0" prefWidth="104.0" text="Код регистрации" textFill="WHITE" GridPane.rowIndex="1">
                     <font>
                         <Font size="13.0" />
                     </font></Label>
-                <Label prefHeight="19.0" prefWidth="126.0" text="Номер жеребьевки" GridPane.rowIndex="2">
+                <Label prefHeight="19.0" prefWidth="126.0" text="Номер жеребьевки" textFill="WHITE" GridPane.rowIndex="2">
                     <font>
                         <Font size="13.0" />
                     </font></Label>
-                <Button fx:id="confirm_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="349.0" text=" Подтвердить" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <Button fx:id="confirm_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="349.0" style="-fx-background-color: #152812;" text=" Подтвердить" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
                     <font>
                         <Font size="13.0" />
                     </font></Button>
-                <Label prefHeight="19.0" prefWidth="116.0" text="Спортивный клуб" GridPane.rowIndex="3">
+                <Label prefHeight="19.0" prefWidth="116.0" text="Спортивный клуб" textFill="WHITE" GridPane.rowIndex="3">
                     <font>
                         <Font size="13.0" />
                     </font></Label>
@@ -62,6 +62,8 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="347.0" minWidth="0.0" prefWidth="139.0" />
             </columnConstraints>
             <rowConstraints>
+
+                Дед, [11.10.2023 9:51]
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -69,29 +71,29 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label minWidth="41.0" prefHeight="17.0" prefWidth="94.0" text="Пол" GridPane.rowIndex="1">
+                <Label minWidth="41.0" prefHeight="17.0" prefWidth="94.0" text="Пол" textFill="WHITE" GridPane.rowIndex="1">
                     <font>
                         <Font size="13.0" />
                     </font></Label>
-                <Label text="Возрастная категория" GridPane.rowIndex="4">
+                <Label text="Возрастная категория" textFill="WHITE" GridPane.rowIndex="4">
                     <font>
                         <Font size="13.0" />
                     </font></Label>
-                <Label layoutX="10.0" layoutY="122.0" minWidth="41.0" prefHeight="17.0" prefWidth="94.0" text="Дата рождения">
+                <Label layoutX="10.0" layoutY="122.0" minWidth="41.0" prefHeight="17.0" prefWidth="94.0" text="Дата рождения" textFill="WHITE">
                     <font>
                         <Font size="13.0" />
                     </font></Label>
-                <Label text="Активность" GridPane.rowIndex="2">
+                <Label text="Активность" textFill="WHITE" GridPane.rowIndex="2">
                     <font>
                         <Font size="13.0" />
                     </font></Label>
-                <Label layoutX="10.0" layoutY="202.0" text="Весовая категория" GridPane.rowIndex="3">
+                <Label layoutX="10.0" layoutY="202.0" text="Весовая категория" textFill="WHITE" GridPane.rowIndex="3">
                     <font>
                         <Font size="13.0" />
                     </font></Label>
                 <HBox alignment="CENTER" prefHeight="80.0" prefWidth="58.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <children>
-                        <RadioButton fx:id="action_yes" mnemonicParsing="false" prefHeight="17.0" prefWidth="42.0" text="Да">
+                        <RadioButton fx:id="action_yes" mnemonicParsing="false" prefHeight="17.0" prefWidth="42.0" text="Да" textFill="WHITE">
                             <HBox.margin>
                                 <Insets right="20.0" />
                             </HBox.margin>
@@ -102,7 +104,7 @@
                                 <Font size="13.0" />
                             </font>
                         </RadioButton>
-                        <RadioButton fx:id="actoin_no" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" text="Нет" toggleGroup="$action">
+                        <RadioButton fx:id="actoin_no" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" text="Нет" textFill="WHITE" toggleGroup="$action">
                             <font>
                                 <Font size="13.0" />
                             </font></RadioButton>

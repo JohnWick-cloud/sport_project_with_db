@@ -1,8 +1,8 @@
-package com.example.sport_project_with_db;
+package com.example.sport_project_with_db.db_actions;
 
+import com.example.sport_project_with_db.classes_for_cntrollers.Sportsmen;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
 
 import java.sql.*;
 
@@ -10,9 +10,9 @@ public class sportsmenDb {
 
     public static void write(String name){
         ObservableList<Sportsmen> data = FXCollections.observableArrayList();
-        String url = "jdbc:postgresql://localhost:5432/sportsmens_list";
-        String login = "postgres";
-        String password = "postgres";
+        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String login = "progers";
+        String password = "root";
         String query = "INSERT INTO sportsmens(name) VALUES(?)";
 
         try {
@@ -32,9 +32,9 @@ public class sportsmenDb {
     }
 
     public static ObservableList<Sportsmen> getData(){
-        String url = "jdbc:postgresql://localhost:5432/sportsmens_list";
-        String login = "postgres";
-        String password = "postgres";
+        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String login = "progers";
+        String password = "root";
         ObservableList<Sportsmen> data = FXCollections.observableArrayList();
         try(Connection connection = DriverManager.getConnection(url, login, password)){
             String query = "SELECT name FROM sportsmens";
