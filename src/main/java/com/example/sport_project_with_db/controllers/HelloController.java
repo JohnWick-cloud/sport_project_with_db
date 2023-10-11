@@ -1,5 +1,6 @@
 package com.example.sport_project_with_db.controllers;
 
+import com.example.sport_project_with_db.HelloApplication;
 import com.example.sport_project_with_db.classes_for_cntrollers.Sportsmen;
 import com.example.sport_project_with_db.db_actions.sportsmenDb;
 import javafx.application.Platform;
@@ -141,7 +142,7 @@ public class HelloController implements Initializable {
             public void handle(ActionEvent event) {
                 Platform.runLater(() -> {
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/sport_project_with_db/fxml_files/add_sportsmen.fxml"));
+                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml_files/add_sportsmen.fxml"));
                         Scene newscene = new Scene(loader.load());
                         Stage newstage = new Stage();
                         newstage.setScene(newscene);

@@ -63,7 +63,6 @@
             </columnConstraints>
             <rowConstraints>
 
-                Дед, [11.10.2023 9:51]
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
