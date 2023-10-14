@@ -3,9 +3,9 @@ package com.example.sport_project_with_db.classes_for_cntrollers;
 public class Sportsmen {
 
 
-    String name, sport_club, gender, weight, age_category, age;
+    String name, sport_club, gender, weight, age_category, age, act;
     int draw_num, reg_num;
-    boolean act;
+
 
 
     public Sportsmen setName(String name) {
@@ -48,7 +48,7 @@ public class Sportsmen {
         return this;
     }
 
-    public Sportsmen setAct(boolean act) {
+    public Sportsmen setAct(String act) {
         this.act = act;
         return this;
     }
@@ -85,7 +85,7 @@ public class Sportsmen {
         return reg_num;
     }
 
-    public boolean getAct() {
+    public String getAct() {
         return act;
     }
 
@@ -104,7 +104,7 @@ public class Sportsmen {
                 '}';
     }
 
-    public Sportsmen(String name, String sport_club, String gender, String weight, String age_category, String age, int draw_num, int reg_num, boolean act) {
+    public Sportsmen(String name, String sport_club, String gender, String weight, String age_category, String age, int draw_num, int reg_num, String act) {
         this.name = name;
         this.sport_club = sport_club;
         this.gender = gender;

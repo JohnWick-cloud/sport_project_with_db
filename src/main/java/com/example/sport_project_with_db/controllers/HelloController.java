@@ -3,6 +3,7 @@ package com.example.sport_project_with_db.controllers;
 import com.example.sport_project_with_db.HelloApplication;
 import com.example.sport_project_with_db.classes_for_cntrollers.Sportsmen;
 import com.example.sport_project_with_db.db_actions.sportsmenDb;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -25,7 +26,12 @@ import java.util.ResourceBundle;
 public class HelloController implements Initializable {
 
     @FXML
+    private MenuItem weightCategory;
+
+    @FXML
     private MenuItem addSportsmen;
+    @FXML
+    private  MenuItem ageCategory;
 
     @FXML
     private TableView<Sportsmen> sportTable;
@@ -97,6 +103,44 @@ public class HelloController implements Initializable {
                     }catch (Exception e){
                         System.out.println(e);
                     }
+            }
+        });
+        ageCategory.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Platform.runLater(() -> {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml_files/ageCategoryView.fxml"));
+                        Scene newscene = new Scene(loader.load());
+                        Stage newstage = new Stage();
+                        newstage.setScene(newscene);
+                        newstage.setTitle("Добавить возрастную категорию");
+                        newstage.showAndWait();
+
+                    }catch (Exception e){
+                        System.out.println(e);
+                    }
+                });
+            }
+        });
+
+
+        weightCategory.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Platform.runLater(() -> {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml_files/weightCategoryView.fxml"));
+                        Scene newscene = new Scene(loader.load());
+                        Stage newstage = new Stage();
+                        newstage.setScene(newscene);
+                        newstage.setTitle("Добавить весовую категорию");
+                        newstage.showAndWait();
+
+                    }catch (Exception e){
+                        System.out.println(e);
+                    }
+                });
             }
         });
     }

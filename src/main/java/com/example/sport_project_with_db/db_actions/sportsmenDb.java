@@ -25,7 +25,11 @@ public class sportsmenDb {
             preparedStatement.setDate(3, java.sql.Date.valueOf(age));
             preparedStatement.setString(4, club);
             preparedStatement.setString(5, gender);
-            preparedStatement.setBoolean(6, action);
+            if(action){
+                preparedStatement.setString(6, "ДА");
+            }else {
+                preparedStatement.setString(6, "НЕТ");
+            }
             preparedStatement.setString(7, weight);
             preparedStatement.setString(8, age_category);
             preparedStatement.executeUpdate();
@@ -56,7 +60,7 @@ public class sportsmenDb {
                 Date age = resultSet.getDate("age");
                 String club = resultSet.getString("club");
                 String gender = resultSet.getString("gender");
-                boolean action = resultSet.getBoolean("action");
+                String action = resultSet.getString("action");
                 String weight = resultSet.getString("weight");
                 String age_category = resultSet.getString("age_category");
                 data.add(new Sportsmen(name, club, gender, weight, age_category, age.toString(), cod_draw, cod_reg, action));
