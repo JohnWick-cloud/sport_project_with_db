@@ -55,7 +55,7 @@ public class HelloController implements Initializable {
     private TableColumn<Sportsmen, Integer> reg_col;
 
     @FXML
-    private TableColumn<Sportsmen, Integer> weight_col;
+    private TableColumn<Sportsmen, String> weight_col;
 
 
 

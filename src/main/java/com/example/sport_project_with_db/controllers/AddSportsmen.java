@@ -83,7 +83,7 @@ public class AddSportsmen implements Initializable {
         confirm_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                System.out.println();
                 try {
                     int reg_num = Integer.parseInt(reg_field.getText());
                     boolean action_ = true;

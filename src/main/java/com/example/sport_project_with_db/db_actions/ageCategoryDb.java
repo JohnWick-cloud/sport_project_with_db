@@ -44,7 +44,9 @@ public class ageCategoryDb {
         }catch (Exception e){
             System.out.println(e);
         }
+
         return data;
+
     }
 
     public static String getFirst(){

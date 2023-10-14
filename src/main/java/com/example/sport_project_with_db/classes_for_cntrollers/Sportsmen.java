@@ -1,30 +1,5 @@
 package com.example.sport_project_with_db.classes_for_cntrollers;
 
-//public class Sportsmen{
-//    String name;
-//
-//    public Sportsmen(String name) {
-//        this.name = name;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Sportsmen{" +
-//                "name='" + name + '\'' +
-//                '}';
-//    }
-//
-//    public Sportsmen setName(String name) {
-//        this.name = name;
-//        return this;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//}
-
-
 public class Sportsmen {
 
 

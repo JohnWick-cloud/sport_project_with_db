@@ -28,7 +28,7 @@ public class sportsmenDb {
             preparedStatement.setString(6, gender);
             preparedStatement.setBoolean(7, action);
             preparedStatement.setString(8, weight);
-            preparedStatement.setString(9, age);
+            preparedStatement.setString(9, age_category);
             preparedStatement.executeUpdate();
             data.add(new Sportsmen(name, club, gender, weight, age_category, age, cod_draw, cod_reg, action));
 
