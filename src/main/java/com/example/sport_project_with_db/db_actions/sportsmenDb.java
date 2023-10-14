@@ -5,32 +5,31 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
-import java.time.LocalDate;
+
 
 public class sportsmenDb {
 
-    public static void write(String name, int cod_reg, int cod_draw, String age, String club, String gender, boolean action, String weight, String age_category){
+    public static void write(String name, int cod_draw, String age, String club, String gender, boolean action, String weight, String age_category){
         ObservableList<Sportsmen> data = FXCollections.observableArrayList();
         String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
         String login = "progers";
         String password = "root";
-        String query = "INSERT INTO sportsmens(name, cod_reg, cod_draw, age, club, gender, action, weight, age_category) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO sportsmens(name, cod_draw, age, club, gender, action, weight, age_category) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection(url, login, password);
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, name);
-            preparedStatement.setInt(2, cod_reg);
-            preparedStatement.setInt(3, cod_draw);
-            preparedStatement.setDate(4, java.sql.Date.valueOf(age));
-            preparedStatement.setString(5, club);
-            preparedStatement.setString(6, gender);
-            preparedStatement.setBoolean(7, action);
-            preparedStatement.setString(8, weight);
-            preparedStatement.setString(9, age_category);
+            preparedStatement.setInt(2, cod_draw);
+            preparedStatement.setDate(3, java.sql.Date.valueOf(age));
+            preparedStatement.setString(4, club);
+            preparedStatement.setString(5, gender);
+            preparedStatement.setBoolean(6, action);
+            preparedStatement.setString(7, weight);
+            preparedStatement.setString(8, age_category);
             preparedStatement.executeUpdate();
-            data.add(new Sportsmen(name, club, gender, weight, age_category, age, cod_draw, cod_reg, action));
+
 
 
 

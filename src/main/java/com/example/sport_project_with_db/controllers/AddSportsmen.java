@@ -35,7 +35,7 @@ public class AddSportsmen implements Initializable {
     private RadioButton action_yes;
 
     @FXML
-    private RadioButton actoin_no;
+    private RadioButton action_no;
 
     @FXML
     private ComboBox<String> age_choice;
@@ -48,9 +48,6 @@ public class AddSportsmen implements Initializable {
 
     @FXML
     private ComboBox<String> genderChoice;
-
-    @FXML
-    private TextField reg_field;
 
     @FXML
     private ComboBox<String> sportClub_choice;
@@ -85,9 +82,9 @@ public class AddSportsmen implements Initializable {
             public void handle(ActionEvent event) {
                 System.out.println();
                 try {
-                    int reg_num = Integer.parseInt(reg_field.getText());
+
                     boolean action_ = true;
-                    if(actoin_no.isSelected()){
+                    if(action_no.isSelected()){
                         action_ = false;
                     }
                     String sport_club = sportClub_choice.getValue();
@@ -97,7 +94,7 @@ public class AddSportsmen implements Initializable {
                     String weight_cat = weight_choice.getValue();
                     String age_cat = age_choice.getValue();
                     String gender = genderChoice.getValue();
-                    sportsmenDb.write(name, reg_num, draw_num, birthDate.toString(), sport_club, gender, action_, weight_cat, age_cat);
+                    sportsmenDb.write(name, draw_num, birthDate.toString(), sport_club, gender, action_, weight_cat, age_cat);
                     Stage stage = (Stage) confirm_btn.getScene().getWindow();
                     stage.close();
 
