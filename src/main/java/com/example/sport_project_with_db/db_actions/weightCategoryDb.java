@@ -1,6 +1,5 @@
 package com.example.sport_project_with_db.db_actions;
 
-import com.example.sport_project_with_db.classes_for_cntrollers.Sportsmen;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -9,12 +8,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class sportClubDb {
-    public static void addSportCLub(String club){
+public class weightCategoryDb {
+
+    public static void addWeight(String club){
         String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
         String login = "progers";
         String password = "root";
-        String query = "INSERT INTO sportclub(club) VALUES(?)";
+        String query = "INSERT INTO weight_category(age) VALUES(?)";
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -28,18 +28,18 @@ public class sportClubDb {
         }
     }
 
-    public static ObservableList<String> getSportClub(){
+    public static ObservableList<String> getWeight(){
         String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
         String login = "progers";
         String password = "root";
         ObservableList<String> data = FXCollections.observableArrayList();
         try(Connection connection = DriverManager.getConnection(url, login, password)){
-            String query = "SELECT club FROM sportclub";
+            String query = "SELECT weight FROM weight_category";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                String club = resultSet.getString("club");
-                data.add(club);
+                String weight = resultSet.getString("weight");
+                data.add(weight);
             }
             return data;
         }catch (Exception e){
@@ -55,12 +55,12 @@ public class sportClubDb {
         String password = "root";
         String data = "";
         try(Connection connection = DriverManager.getConnection(url, login, password)){
-            String query = "SELECT club FROM sportclub";
+            String query = "SELECT weight FROM weight_category";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
-                String club = resultSet.getString("club");
-                data = club;
+                String weight = resultSet.getString("weight");
+                data = weight;
             }
 
             return data;
@@ -69,4 +69,5 @@ public class sportClubDb {
         }
         return data;
     }
+
 }
