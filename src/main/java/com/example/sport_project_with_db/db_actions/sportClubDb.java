@@ -1,9 +1,7 @@
 package com.example.sport_project_with_db.db_actions;
 
-import com.example.sport_project_with_db.classes_for_cntrollers.Sportsmen;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
