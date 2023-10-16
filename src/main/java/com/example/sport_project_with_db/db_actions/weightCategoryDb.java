@@ -14,7 +14,7 @@ public class weightCategoryDb {
         String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
         String login = "progers";
         String password = "root";
-        String query = "INSERT INTO weight_category(age) VALUES(?)";
+        String query = "INSERT INTO weight_category(weight) VALUES(?)";
 
         try {
             Class.forName("org.postgresql.Driver");

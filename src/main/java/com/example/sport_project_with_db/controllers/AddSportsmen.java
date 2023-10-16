@@ -1,4 +1,5 @@
 package com.example.sport_project_with_db.controllers;
+import com.example.sport_project_with_db.classes_for_cntrollers.Sportsmen;
 import com.example.sport_project_with_db.db_actions.ageCategoryDb;
 import com.example.sport_project_with_db.db_actions.sportClubDb;
 import com.example.sport_project_with_db.db_actions.sportsmenDb;
@@ -56,6 +57,22 @@ public class AddSportsmen implements Initializable {
     private ComboBox<String> weight_choice;
 
 
+    public void update_sportsmen(Sportsmen sportsmen){
+        name_field.setText(sportsmen.getName());
+        birthDate_choice.setValue(LocalDate.parse(sportsmen.getAge()));
+        genderChoice.setValue(sportsmen.getGender());
+        age_choice.setValue(sportsmen.getAge_category());
+        weight_choice.setValue(sportsmen.getWeight());
+        sportClub_choice.setValue(sportsmen.getSport_club());
+        draw_field.setText(String.valueOf(sportsmen.getDraw_num()));
+        if(sportsmen.getAct()=="ДА"){
+            action_yes.setSelected(true);
+        }
+        else {
+            action_no.setSelected(true);
+        }
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -75,12 +92,10 @@ public class AddSportsmen implements Initializable {
 
 
 
-
-
         confirm_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println();
+
                 try {
 
                     boolean action_ = true;
@@ -94,7 +109,15 @@ public class AddSportsmen implements Initializable {
                     String weight_cat = weight_choice.getValue();
                     String age_cat = age_choice.getValue();
                     String gender = genderChoice.getValue();
-                    sportsmenDb.write(name, draw_num, birthDate.toString(), sport_club, gender, action_, weight_cat, age_cat);
+                    if(sportsmenDb.getNames().contains(name)){
+                        System.out.println(true);
+                        sportsmenDb.updateSportsmen(name, draw_num, birthDate.toString(), sport_club, gender, action_, weight_cat, age_cat);
+                    }
+                    else{
+                        sportsmenDb.write(name, draw_num, birthDate.toString(), sport_club, gender, action_, weight_cat, age_cat);
+                    }
+
+
                     Stage stage = (Stage) confirm_btn.getScene().getWindow();
                     stage.close();
 

@@ -14,6 +14,7 @@
           <Menu id="spravochniki" mnemonicParsing="false" text="Справочники">
             <items>
               <MenuItem fx:id="addSportsmen" mnemonicParsing="false" text="Спортсмены" />
+                  <MenuItem fx:id="addSportClub" mnemonicParsing="false" text="Спортивный Клуб" />
                   <MenuItem fx:id="ageCategory" mnemonicParsing="false" text="Возрастная Категория" />
                   <MenuItem fx:id="weightCategory" mnemonicParsing="false" text="Весовые категории" />
             </items>
@@ -21,7 +22,13 @@
             <Menu mnemonicParsing="false" text="Таблица">
                <items>
                   <MenuItem fx:id="resfresh_table" mnemonicParsing="false" onAction="#updateData" text="Обновить таблицу" />
+                  <MenuItem fx:id="data_change" mnemonicParsing="false" text="Изменить данные спорстмена" />
                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Открыть файл">
+              <items>
+                  <MenuItem fx:id="add_file_btn" mnemonicParsing="false" text="Открыть файл" />
+              </items>
             </Menu>
         </menus>
       </MenuBar>

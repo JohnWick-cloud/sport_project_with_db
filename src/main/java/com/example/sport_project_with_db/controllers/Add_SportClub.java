@@ -1,7 +1,6 @@
 package com.example.sport_project_with_db.controllers;
 
-import com.example.sport_project_with_db.db_actions.ageCategoryDb;
-import com.example.sport_project_with_db.db_actions.weightCategoryDb;
+import com.example.sport_project_with_db.db_actions.sportClubDb;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,24 +12,27 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class WeightCategoryViews implements Initializable {
+public class Add_SportClub implements Initializable {
 
     @FXML
-    private Button add_weight_btn;
-
+    private TextField addSportClub;
     @FXML
-    private TextField addWeight;
+    private Button add_sport_club_btn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        add_weight_btn.setOnAction(new EventHandler<ActionEvent>() {
+
+        add_sport_club_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                String weight = addWeight.getText();
-                weightCategoryDb.addWeight(weight);
-                Stage stage = (Stage) add_weight_btn.getScene().getWindow();
+                String sport_club = addSportClub.getText();
+                sportClubDb.addSportCLub(sport_club);
+                Stage stage = (Stage) add_sport_club_btn.getScene().getWindow();
                 stage.close();
             }
         });
+
+
     }
 }
+

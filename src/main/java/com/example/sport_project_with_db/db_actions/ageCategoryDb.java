@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 
 public class ageCategoryDb {
     public static void addAge(String club){
-        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
         String query = "INSERT INTO age_category(age) VALUES(?)";
