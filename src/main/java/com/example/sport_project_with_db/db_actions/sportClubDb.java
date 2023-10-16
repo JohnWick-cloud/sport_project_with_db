@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 
 public class sportClubDb {
     public static void addSportCLub(String club){
-        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
         String query = "INSERT INTO sportclub(club) VALUES(?)";
@@ -27,7 +27,7 @@ public class sportClubDb {
     }
 
     public static ObservableList<String> getSportClub(){
-        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
         ObservableList<String> data = FXCollections.observableArrayList();
@@ -48,7 +48,7 @@ public class sportClubDb {
 
     public static String getFirst(){
 
-        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
         String data = "";

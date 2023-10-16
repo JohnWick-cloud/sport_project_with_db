@@ -11,7 +11,7 @@ public class sportsmenDb {
 
     public static void write(String name, int cod_draw, String age, String club, String gender, boolean action, String weight, String age_category){
         ObservableList<Sportsmen> data = FXCollections.observableArrayList();
-        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
         String query = "INSERT INTO sportsmens(name, cod_draw, age, club, gender, action, weight, age_category) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
@@ -44,7 +44,7 @@ public class sportsmenDb {
     }
 
     public static ObservableList<Sportsmen> getData(){
-        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
         ObservableList<Sportsmen> data = FXCollections.observableArrayList();

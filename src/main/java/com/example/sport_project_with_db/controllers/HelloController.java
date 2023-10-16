@@ -23,6 +23,9 @@ import java.util.ResourceBundle;
 public class HelloController implements Initializable {
 
     @FXML
+    private MenuItem addSportClub;
+
+    @FXML
     private MenuItem weightCategory;
 
     @FXML
@@ -121,6 +124,25 @@ public class HelloController implements Initializable {
             }
         });
 
+
+        addSportClub.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Platform.runLater(() -> {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml_files/add_sportClub.fxml"));
+                        Scene newscene = new Scene(loader.load());
+                        Stage newstage = new Stage();
+                        newstage.setScene(newscene);
+                        newstage.setTitle("Добавить спортивный клуб");
+                        newstage.showAndWait();
+
+                    }catch (Exception e){
+                        System.out.println(e);
+                    }
+                });
+            }
+        });
 
         weightCategory.setOnAction(new EventHandler<ActionEvent>() {
             @Override

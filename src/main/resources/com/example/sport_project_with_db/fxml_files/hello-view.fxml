@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sport_project_with_db.controllers.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sport_project_with_db.controllers.HelloController">
    <children>
       <MenuBar layoutX="-8.0" prefHeight="29.0" prefWidth="679.0" stylesheets="@../style/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -16,6 +16,7 @@
               <MenuItem fx:id="addSportsmen" mnemonicParsing="false" text="Спортсмены" />
                   <MenuItem fx:id="ageCategory" mnemonicParsing="false" text="Возрастная Категория" />
                   <MenuItem fx:id="weightCategory" mnemonicParsing="false" text="Весовые категории" />
+                  <MenuItem fx:id="addSportClub" mnemonicParsing="false" text="Спортивные клубы" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Таблица">

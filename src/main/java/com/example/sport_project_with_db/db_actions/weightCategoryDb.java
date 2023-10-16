@@ -11,10 +11,10 @@ import java.sql.ResultSet;
 public class weightCategoryDb {
 
     public static void addWeight(String club){
-        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
-        String query = "INSERT INTO weight_category(age) VALUES(?)";
+        String query = "INSERT INTO weight_category(weight) VALUES(?)";
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -29,7 +29,7 @@ public class weightCategoryDb {
     }
 
     public static ObservableList<String> getWeight(){
-        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
         ObservableList<String> data = FXCollections.observableArrayList();
@@ -50,7 +50,7 @@ public class weightCategoryDb {
 
     public static String getFirst(){
 
-        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
         String data = "";
