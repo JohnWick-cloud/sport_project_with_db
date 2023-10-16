@@ -1,4 +1,5 @@
 package com.example.sport_project_with_db.controllers;
+import com.example.sport_project_with_db.HelloApplication;
 import com.example.sport_project_with_db.classes_for_cntrollers.Sportsmen;
 import com.example.sport_project_with_db.db_actions.ageCategoryDb;
 import com.example.sport_project_with_db.db_actions.sportClubDb;
@@ -9,7 +10,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -18,6 +21,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 
@@ -65,13 +69,40 @@ public class AddSportsmen implements Initializable {
         weight_choice.setValue(sportsmen.getWeight());
         sportClub_choice.setValue(sportsmen.getSport_club());
         draw_field.setText(String.valueOf(sportsmen.getDraw_num()));
-        if(sportsmen.getAct()=="ДА"){
+        if(sportsmen.getAct().equals("ДА")){
             action_yes.setSelected(true);
         }
-        else {
+        else if(sportsmen.getAct().equals("НЕТ")) {
             action_no.setSelected(true);
         }
+        confirm_btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
 
+                try {
+                    String sport_club = sportClub_choice.getValue();
+                    LocalDate birthDate = birthDate_choice.getValue();
+                    int draw_num = Integer.parseInt(draw_field.getText());
+                    String name = name_field.getText();
+                    String weight_cat = weight_choice.getValue();
+                    String age_cat = age_choice.getValue();
+                    String gender = genderChoice.getValue();
+                    if(sportsmenDb.getNames().contains(sportsmen.getName())){
+                        System.out.println(sportsmen.getName());
+                        if(action_yes.isSelected()){
+                            sportsmenDb.updateSportsmen(sportsmen.getName(), name, draw_num, birthDate.toString(), sport_club, gender, true, weight_cat, age_cat);
+                        }
+                        else if(action_no.isSelected()){
+                            sportsmenDb.updateSportsmen(sportsmen.getName(), name, draw_num, birthDate.toString(), sport_club, gender, false, weight_cat, age_cat);
+                        }
+                    }
+                    Stage stage = (Stage) confirm_btn.getScene().getWindow();
+                    stage.close();
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+            }
+        });
     }
 
     @Override
@@ -92,6 +123,9 @@ public class AddSportsmen implements Initializable {
 
 
 
+        String name_first = name_field.getText();
+
+
         confirm_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -109,15 +143,7 @@ public class AddSportsmen implements Initializable {
                     String weight_cat = weight_choice.getValue();
                     String age_cat = age_choice.getValue();
                     String gender = genderChoice.getValue();
-                    if(sportsmenDb.getNames().contains(name)){
-                        System.out.println(true);
-                        sportsmenDb.updateSportsmen(name, draw_num, birthDate.toString(), sport_club, gender, action_, weight_cat, age_cat);
-                    }
-                    else{
-                        sportsmenDb.write(name, draw_num, birthDate.toString(), sport_club, gender, action_, weight_cat, age_cat);
-                    }
-
-
+                    sportsmenDb.write(name, draw_num, birthDate.toString(), sport_club, gender, action_, weight_cat, age_cat);
                     Stage stage = (Stage) confirm_btn.getScene().getWindow();
                     stage.close();
 

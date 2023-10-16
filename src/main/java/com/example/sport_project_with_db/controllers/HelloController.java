@@ -83,6 +83,10 @@ public class HelloController implements Initializable {
 
 
 
+
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -97,8 +101,10 @@ public class HelloController implements Initializable {
         act_col.setCellValueFactory(new PropertyValueFactory<>("act"));
 
         updateData();
-        TableView.TableViewSelectionModel<Sportsmen> selectionModel = sportTable.getSelectionModel();
 
+
+
+        TableView.TableViewSelectionModel<Sportsmen> selectionModel = sportTable.getSelectionModel();
 
         data_change.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -108,10 +114,7 @@ public class HelloController implements Initializable {
                     Scene newscene = new Scene(loader.load());
                     Stage newstage = new Stage();
                     AddSportsmen addSportsmen_controller = loader.getController();
-
                     addSportsmen_controller.update_sportsmen(selectionModel.getSelectedItem());
-
-
                     newstage.setScene(newscene);
                     newstage.setTitle("Добавить спортсмена");
                     newstage.showAndWait();
@@ -201,16 +204,18 @@ public class HelloController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 FileChooser fileChooser = new FileChooser();
-                fileChooser.setTitle("Выберите файл");
+                fileChooser.setTitle("Выберите Excel файл");
 
-                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Text files (*.txt)", "*.txt");
+                // Установите фильтр для Excel-файлов (xlsx)
+                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Excel files (*.xlsx)", "*.xlsx");
                 fileChooser.getExtensionFilters().add(extFilter);
-                // Установите фильтры для типов файлов, если это необходимо
+
                 File selectedFile = fileChooser.showOpenDialog(new Stage());
 
                 if (selectedFile != null) {
-                    // Здесь можно выполнить действия с выбранным файлом
-                    System.out.println("Выбран файл: " + selectedFile.getAbsolutePath());
+                    // Здесь вы можете выполнить действия с выбранным Excel-файлом
+                    // Например, вы можете передать его для отображения в другом FXML-документе
+                    System.out.println("Выбран Excel-файл: " + selectedFile.getAbsolutePath());
                 }
             }
         });

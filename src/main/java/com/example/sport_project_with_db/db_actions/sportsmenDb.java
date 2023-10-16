@@ -26,7 +26,7 @@ public class sportsmenDb {
             preparedStatement.setDate(3, java.sql.Date.valueOf(age));
             preparedStatement.setString(4, club);
             preparedStatement.setString(5, gender);
-            if(action){
+            if(action==true){
                 preparedStatement.setString(6, "ДА");
             }else {
                 preparedStatement.setString(6, "НЕТ");
@@ -41,7 +41,7 @@ public class sportsmenDb {
 
     }
 
-    public static void updateSportsmen(String name, int cod_draw, String age, String club, String gender, boolean action, String weight, String age_category){
+    public static void updateSportsmen(String name_first, String name, int cod_draw, String age, String club, String gender, boolean action, String weight, String age_category){
 
         String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
         String login = "progers";
@@ -57,13 +57,14 @@ public class sportsmenDb {
             preparedStatement.setDate(3, java.sql.Date.valueOf(age));
             preparedStatement.setString(4, club);
             preparedStatement.setString(5, gender);
-            if(action){
+            if(action==true){
                 preparedStatement.setString(6, "ДА");
             }else {
                 preparedStatement.setString(6, "НЕТ");
             }
             preparedStatement.setString(7, weight);
             preparedStatement.setString(8, age_category);
+            preparedStatement.setString(9, name_first);
             preparedStatement.executeUpdate();
 
         }catch (Exception e){
