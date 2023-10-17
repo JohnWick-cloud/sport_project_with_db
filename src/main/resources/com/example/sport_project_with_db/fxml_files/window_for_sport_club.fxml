@@ -7,7 +7,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sport_project_with_db.controllers.WindowForSportClub">
    <children>
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
@@ -17,22 +16,19 @@
               <MenuItem fx:id="add_sport_club_btn" mnemonicParsing="false" text="Добавить " />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Изменить">
+          <Menu mnemonicParsing="false" text="Работа с таблицей">
             <items>
               <MenuItem mnemonicParsing="false" text="Изменить" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Удалить">
-            <items>
               <MenuItem mnemonicParsing="false" text="Удалить" />
+                  <MenuItem fx:id="update_table" mnemonicParsing="false" text="Обновить таблицу" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <TableView layoutY="27.0" prefHeight="373.0" prefWidth="600.0">
+      <TableView fx:id="sport_club_table" layoutY="27.0" prefHeight="373.0" prefWidth="600.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="№" />
-          <TableColumn prefWidth="524.0" text="Спортивные клубы" />
+          <TableColumn fx:id="id_col" prefWidth="75.0" text="№" />
+          <TableColumn fx:id="name_col" prefWidth="524.0" text="Спортивные клубы" />
         </columns>
       </TableView>
    </children>

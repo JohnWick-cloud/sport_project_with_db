@@ -1,5 +1,6 @@
 package com.example.sport_project_with_db.controllers;
 import com.example.sport_project_with_db.HelloApplication;
+import com.example.sport_project_with_db.classes_for_cntrollers.SportClub;
 import com.example.sport_project_with_db.classes_for_cntrollers.Sportsmen;
 import com.example.sport_project_with_db.db_actions.ageCategoryDb;
 import com.example.sport_project_with_db.db_actions.sportClubDb;
@@ -26,6 +27,7 @@ import java.net.URL;
 import java.time.LocalDate;
 
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class AddSportsmen implements Initializable {
     @FXML
@@ -112,7 +114,11 @@ public class AddSportsmen implements Initializable {
         genderChoice.setItems(genders);
         genderChoice.setValue("Мужчина");
 
-        sportClub_choice.setItems(sportClubDb.getSportClub());
+        ObservableList<String> clubs = sportClubDb.getSportClub().stream()
+                .map(SportClub::getName) // Здесь предполагается, что у SportClub есть метод getName() для получения имени клуба.
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));
+
+        sportClub_choice.setItems(clubs);
         sportClub_choice.setValue(sportClubDb.getFirst());
 
         age_choice.setItems(ageCategoryDb.getAge());

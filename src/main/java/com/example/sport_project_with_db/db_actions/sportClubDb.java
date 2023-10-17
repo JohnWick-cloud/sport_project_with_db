@@ -1,5 +1,6 @@
 package com.example.sport_project_with_db.db_actions;
 
+import com.example.sport_project_with_db.classes_for_cntrollers.SportClub;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.Connection;
@@ -26,18 +27,19 @@ public class sportClubDb {
         }
     }
 
-    public static ObservableList<String> getSportClub(){
+    public static ObservableList<SportClub> getSportClub(){
         String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
-        ObservableList<String> data = FXCollections.observableArrayList();
+        ObservableList<SportClub> data = FXCollections.observableArrayList();
         try(Connection connection = DriverManager.getConnection(url, login, password)){
-            String query = "SELECT club FROM sportclub";
+            String query = "SELECT club_id, club FROM sportclub";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 String club = resultSet.getString("club");
-                data.add(club);
+                int id = resultSet.getInt("club_id");
+                data.add(new SportClub(id, club));
             }
             return data;
         }catch (Exception e){

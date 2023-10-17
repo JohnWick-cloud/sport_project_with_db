@@ -188,7 +188,7 @@ public class HelloController implements Initializable {
             public void handle(ActionEvent event) {
                 Platform.runLater(() -> {
                     try {
-                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml_files/ageCategoryView.fxml"));
+                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml_files/window_for_age_category.fxml"));
                         Scene newscene = new Scene(loader.load());
                         Stage newstage = new Stage();
                         newstage.setScene(newscene);
@@ -208,7 +208,7 @@ public class HelloController implements Initializable {
             public void handle(ActionEvent event) {
                 Platform.runLater(() -> {
                     try {
-                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml_files/add_sportClub.fxml"));
+                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml_files/window_for_sport_club.fxml"));
                         Scene newscene = new Scene(loader.load());
                         Stage newstage = new Stage();
                         newstage.setScene(newscene);
@@ -227,7 +227,7 @@ public class HelloController implements Initializable {
             public void handle(ActionEvent event) {
                 Platform.runLater(() -> {
                     try {
-                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml_files/weightCategoryView.fxml"));
+                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml_files/window_for_weight_category.fxml"));
                         Scene newscene = new Scene(loader.load());
                         Stage newstage = new Stage();
                         newstage.setScene(newscene);

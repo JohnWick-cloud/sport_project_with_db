@@ -1,6 +1,9 @@
 package com.example.sport_project_with_db.controllers;
 
 import com.example.sport_project_with_db.HelloApplication;
+import com.example.sport_project_with_db.classes_for_cntrollers.WeightCategory;
+import com.example.sport_project_with_db.db_actions.sportClubDb;
+import com.example.sport_project_with_db.db_actions.weightCategoryDb;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,6 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -17,11 +23,34 @@ import java.util.ResourceBundle;
 public class WindowForWeightCategory implements Initializable {
 
     @FXML
-
     private MenuItem add_weight_category_btn;
+
+    @FXML
+    private MenuItem update_table;
+
+    @FXML
+    private TableView<WeightCategory> weight_table;
+
+    @FXML
+    private TableColumn<WeightCategory, Integer> id_col;
+
+    @FXML
+    private TableColumn<WeightCategory, String> weight_col;
+
+
+    public void updateData(){
+        weight_table.getItems().clear();
+        weight_table.setItems(weightCategoryDb.getWeight());
+        weight_table.refresh();
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+        id_col.setCellValueFactory(new PropertyValueFactory<>("id"));
+        weight_col.setCellValueFactory(new PropertyValueFactory<>("weight"));
 
         add_weight_category_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
