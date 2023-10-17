@@ -28,7 +28,7 @@ public class ageCategoryDb {
     }
 
     public static ObservableList<String> getAge(){
-        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
         ObservableList<String> data = FXCollections.observableArrayList();
@@ -51,7 +51,7 @@ public class ageCategoryDb {
 
     public static String getFirst(){
 
-        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
         String password = "root";
         String data = "";
