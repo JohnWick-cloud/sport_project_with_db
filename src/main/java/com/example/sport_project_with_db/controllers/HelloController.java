@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -21,8 +22,15 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+
+
+
+
 
 public class HelloController implements Initializable {
 
@@ -32,7 +40,8 @@ public class HelloController implements Initializable {
     private MenuItem data_change;
     @FXML
     private MenuItem add_file_btn;
-
+    @FXML
+    private MenuItem data_delete;
     @FXML
     private MenuItem weightCategory;
 
@@ -114,15 +123,47 @@ public class HelloController implements Initializable {
                     Scene newscene = new Scene(loader.load());
                     Stage newstage = new Stage();
                     AddSportsmen addSportsmen_controller = loader.getController();
-                    addSportsmen_controller.update_sportsmen(selectionModel.getSelectedItem());
-                    newstage.setScene(newscene);
-                    newstage.setTitle("Добавить спортсмена");
-                    newstage.showAndWait();
+                    if(!selectionModel.isEmpty()){
+                        addSportsmen_controller.update_sportsmen(selectionModel.getSelectedItem());
+                        newstage.setScene(newscene);
+                        newstage.setTitle("Добавить спортсмена");
+                        newstage.showAndWait();}
+                    else{
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Уведомление");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Вы не выбрали ни одного спорстмена!\nВыберете спорсмена нажав в таблице.");
+                        alert.showAndWait();
+                    }
 
 
                 }catch (Exception e){
                     System.out.println(e);
                 }
+            }
+        });
+
+        data_delete.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(!selectionModel.isEmpty()){
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Успешно");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Спорстмен "+ selectionModel.getSelectedItem().getName() + " успешно удалён!");
+                    alert.showAndWait();
+                    sportsmenDb.deleteSportsmen(selectionModel.getSelectedItem().getName());
+                    updateData();
+
+
+                } else{
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Уведомление");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Вы не выбрали ни одного спорстмена!\nВыберете спорсмена нажав в таблице.");
+                    alert.showAndWait();
+                }
+
             }
         });
 
@@ -215,7 +256,10 @@ public class HelloController implements Initializable {
                 if (selectedFile != null) {
                     // Здесь вы можете выполнить действия с выбранным Excel-файлом
                     // Например, вы можете передать его для отображения в другом FXML-документе
-                    System.out.println("Выбран Excel-файл: " + selectedFile.getAbsolutePath());
+//                    System.out.println("Выбран Excel-файл: " + selectedFile.getAbsolutePath());
+
+
+
                 }
             }
         });

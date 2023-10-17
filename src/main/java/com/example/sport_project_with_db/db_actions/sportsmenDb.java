@@ -72,8 +72,6 @@ public class sportsmenDb {
         }
 
     }
-
-
     public static ObservableList<Sportsmen> getData(){
         String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
@@ -105,8 +103,6 @@ public class sportsmenDb {
         return data;
     }
 
-
-
     public static ArrayList<String> getNames() {
         String url = "jdbc:postgresql://localhost:5432/SportProg";
         String login = "progers";
@@ -128,4 +124,23 @@ public class sportsmenDb {
         }
         return data;
     }
+
+    public static void deleteSportsmen(String name) {
+        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
+        String login = "progers";
+        String password = "root";
+        String query = "DELETE FROM sportsmens WHERE name = ?";
+
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection connection = DriverManager.getConnection(url, login, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
+
