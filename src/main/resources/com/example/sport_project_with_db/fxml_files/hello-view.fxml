@@ -23,6 +23,7 @@
                <items>
                   <MenuItem fx:id="resfresh_table" mnemonicParsing="false" onAction="#updateData" text="Обновить таблицу" />
                   <MenuItem fx:id="data_change" mnemonicParsing="false" text="Изменить данные спорстмена" />
+                  <MenuItem fx:id="data_delete" mnemonicParsing="false" text="Удалить спортсмена" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Открыть файл">
