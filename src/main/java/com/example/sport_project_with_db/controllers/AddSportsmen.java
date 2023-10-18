@@ -2,6 +2,7 @@ package com.example.sport_project_with_db.controllers;
 import com.example.sport_project_with_db.HelloApplication;
 import com.example.sport_project_with_db.classes_for_cntrollers.SportClub;
 import com.example.sport_project_with_db.classes_for_cntrollers.Sportsmen;
+import com.example.sport_project_with_db.classes_for_cntrollers.WeightCategory;
 import com.example.sport_project_with_db.db_actions.ageCategoryDb;
 import com.example.sport_project_with_db.db_actions.sportClubDb;
 import com.example.sport_project_with_db.db_actions.sportsmenDb;
@@ -124,7 +125,11 @@ public class AddSportsmen implements Initializable {
         age_choice.setItems(ageCategoryDb.getAge());
         age_choice.setValue(ageCategoryDb.getFirst());
 
-        weight_choice.setItems(weightCategoryDb.getWeight());
+        ObservableList<String> weights = weightCategoryDb.getWeight().stream()
+                .map(WeightCategory::getWeight) // Здесь предполагается, что у SportClub есть метод getName() для получения имени клуба.
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));
+
+        weight_choice.setItems(weights);
         weight_choice.setValue(weightCategoryDb.getFirst());
 
 

@@ -21,6 +21,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -254,12 +255,48 @@ public class HelloController implements Initializable {
                 File selectedFile = fileChooser.showOpenDialog(new Stage());
 
                 if (selectedFile != null) {
-                    // Здесь вы можете выполнить действия с выбранным Excel-файлом
-                    // Например, вы можете передать его для отображения в другом FXML-документе
-//                    System.out.println("Выбран Excel-файл: " + selectedFile.getAbsolutePath());
-
-
-
+//                    try (FileInputStream fis = new FileInputStream(selectedFile.getPath());
+//                         Workbook workbook = new XSSFWorkbook(fis)) {
+//
+//                        Sheet sheet = workbook.getSheetAt(0); // Получаем первый лист (если он существует)
+//                        if (sheet == null) {
+//                            System.out.println("Лист не найден.");
+//                            return;
+//                        }
+//
+//                        for (Row row : sheet) {
+//                            for (Cell cell : row) {
+//                                switch (cell.getCellType()) {
+//                                    case STRING:
+//                                        System.out.print(cell.getStringCellValue() + "\t");
+//                                        break;
+//                                    case NUMERIC:
+//                                        if (DateUtil.isCellDateFormatted(cell)) {
+//                                            System.out.print(cell.getDateCellValue() + "\t");
+//                                        } else {
+//                                            System.out.print(cell.getNumericCellValue() + "\t");
+//                                        }
+//                                        break;
+//                                    case BOOLEAN:
+//                                        System.out.print(cell.getBooleanCellValue() + "\t");
+//                                        break;
+//                                    case FORMULA:
+//                                        System.out.print(cell.getCellFormula() + "\t");
+//                                        break;
+//                                    case BLANK:
+//                                        System.out.print("[Пусто]\t");
+//                                        break;
+//                                    default:
+//                                        System.out.print("[Неизвестный тип]\t");
+//                                }
+//                            }
+//                            System.out.println(); // Переход на следующую строку
+//                        }
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//
                 }
             }
         });

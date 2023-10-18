@@ -51,6 +51,7 @@ public class WindowForWeightCategory implements Initializable {
 
         id_col.setCellValueFactory(new PropertyValueFactory<>("id"));
         weight_col.setCellValueFactory(new PropertyValueFactory<>("weight"));
+        updateData();
 
         add_weight_category_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override

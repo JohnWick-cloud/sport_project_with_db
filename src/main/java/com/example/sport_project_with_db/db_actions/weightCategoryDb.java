@@ -1,5 +1,6 @@
 package com.example.sport_project_with_db.db_actions;
 
+import com.example.sport_project_with_db.classes_for_cntrollers.WeightCategory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,7 +12,7 @@ import java.sql.ResultSet;
 public class weightCategoryDb {
 
     public static void addWeight(String club){
-        String url = "jdbc:postgresql://localhost:5432/SportProg";
+        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
         String login = "progers";
         String password = "root";
         String query = "INSERT INTO weight_category(weight) VALUES(?)";
@@ -28,18 +29,19 @@ public class weightCategoryDb {
         }
     }
 
-    public static ObservableList<String> getWeight(){
-        String url = "jdbc:postgresql://localhost:5432/SportProg";
+    public static ObservableList<WeightCategory> getWeight(){
+        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
         String login = "progers";
         String password = "root";
-        ObservableList<String> data = FXCollections.observableArrayList();
+        ObservableList<WeightCategory> data = FXCollections.observableArrayList();
         try(Connection connection = DriverManager.getConnection(url, login, password)){
-            String query = "SELECT weight FROM weight_category";
+            String query = "SELECT id, weight FROM weight_category";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 String weight = resultSet.getString("weight");
-                data.add(weight);
+                int id = resultSet.getInt("id");
+                data.add(new WeightCategory(id, weight));
             }
             return data;
         }catch (Exception e){
@@ -50,7 +52,7 @@ public class weightCategoryDb {
 
     public static String getFirst(){
 
-        String url = "jdbc:postgresql://localhost:5432/SportProg";
+        String url = "jdbc:postgresql://192.168.0.113:5432/SportProg";
         String login = "progers";
         String password = "root";
         String data = "";
